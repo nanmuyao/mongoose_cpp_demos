@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.10)
+project(mongoose_cpp_demos)
+
+set(CMAKE_CXX_STANDARD 11)
+
+message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
+
+# 添加mongoose库的头文件路径
+include_directories(${CMAKE_SOURCE_DIR}/third_party/mongoose)
+
+# 添加mongoose-cpp库的头文件路径
+include_directories(${CMAKE_SOURCE_DIR}/third_party/mongoose-cpp)
+
+# 添加可执行文件
+add_executable(mongoose_cpp_demos src/main.cpp)
+
+# 添加mongoose-cpp库
+add_subdirectory(third_party/mongoose-cpp)
+
+# 链接mongoose-cpp库
+target_link_libraries(mongoose_cpp_demos mongoose)
