@@ -13,9 +13,10 @@ include_directories(${CMAKE_SOURCE_DIR}/third_party/mongoose-cpp)
 
 # 添加controller头文件路径
 include_directories(${CMAKE_SOURCE_DIR}/include/controller/)
+include_directories(${CMAKE_SOURCE_DIR}/include/config/)
 
 # 添加源文件
-file(GLOB SOURCES "src/*.cpp" "src/controller/*.cpp")
+file(GLOB SOURCES "src/*.cpp" "src/controller/*.cpp" "src/config/*.cpp")
 
 # 添加可执行文件
 add_executable(mongoose_cpp_demos ${SOURCES})
