@@ -15,6 +15,9 @@ include_directories(${CMAKE_SOURCE_DIR}/third_party/mongoose-cpp)
 include_directories(${CMAKE_SOURCE_DIR}/include/controller/)
 include_directories(${CMAKE_SOURCE_DIR}/include/config/)
 
+# 添加jsoncpp库的头文件路径
+include_directories(${CMAKE_SOURCE_DIR}/third_party/jsoncpp/include)
+
 # 添加源文件
 file(GLOB SOURCES "src/*.cpp" "src/controller/*.cpp" "src/config/*.cpp")
 
@@ -24,32 +27,6 @@ add_executable(mongoose_cpp_demos ${SOURCES})
 # 添加mongoose-cpp库
 add_subdirectory(third_party/mongoose-cpp)
 
-# 链接mongoose库
-target_link_libraries(mongoose_cpp_demos mongoose)
+# 链接库
+target_link_libraries(mongoose_cpp_demos mongoose ${CMAKE_SOURCE_DIR}/third_party/jsoncpp/build/lib/libjsoncpp.a)
 
-
-# cmake_minimum_required(VERSION 3.10)
-# project(mongoose_cpp_demos)
-
-# set(CMAKE_CXX_STANDARD 11)
-
-# message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
-
-# # 添加源文件
-# file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp" "src/controller/*.cpp")
-
-# # 添加可执行文件
-# add_executable(mongoose_cpp_demos ${SOURCES})
-
-# # 添加头文件路径
-# target_include_directories(mongoose_cpp_demos PUBLIC
-#     ${CMAKE_SOURCE_DIR}/third_party/mongoose
-#     # ${CMAKE_SOURCE_DIR}/third_party/mongoose-cpp
-#     ${CMAKE_SOURCE_DIR}/include/controller
-# )
-
-# # 添加mongoose-cpp库
-# add_subdirectory(third_party/mongoose-cpp)
-
-# # 链接库
-# target_link_libraries(mongoose_cpp_demos PUBLIC mongoose)

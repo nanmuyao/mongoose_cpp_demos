@@ -1,3 +1,15 @@
+## 安装jsoncpp
+1. 安装编译
+    ```
+    git clone https://github.com/open-source-parsers/jsoncpp.git
+    cd jsoncpp
+    mkdir build
+    cd build
+    cmake ..
+    make
+    ```
+2. 在build目录下的lib中生成静态库，修改CmakeLists进行构建
+
 使用conan,conan仓库没有这个项目,在third_party中引入https://github.com/Gregwar/mongoose-cpp
 在main.cpp中导入使用
 

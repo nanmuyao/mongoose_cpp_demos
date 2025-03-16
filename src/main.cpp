@@ -5,6 +5,7 @@
 #include <thread>
 #include <chrono>
 #include <unistd.h>
+#include <json/json.h>
 
 #include "VssController.h"
 #include "AppConfig.h"
