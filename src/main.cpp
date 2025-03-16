@@ -5,32 +5,33 @@
 #include <thread>
 #include <chrono>
 #include <unistd.h>
+#include "VssController.h"
 
 using namespace std;
 using namespace Mongoose;
 
-class MyController : public WebController
-{
-    public: 
-        void hello(Request &request, StreamResponse &response)
-        {
-            response << "Hello " << htmlEntities(request.get("name", "... what's your name ?")) << endl;
-        }
+// class MyController : public WebController
+// {
+//     public: 
+//         void hello(Request &request, StreamResponse &response)
+//         {
+//             response << "Hello " << htmlEntities(request.get("name", "... what's your name ?")) << endl;
+//         }
 
-        void setup()
-        {
-            addRoute("GET", "/hello", MyController, hello);
-        }
-};
+//         void setup()
+//         {
+//             addRoute("GET", "/hello", MyController, hello);
+//         }
+// };
 
 
 int main()
 {
     int a = 1;
     cout << "Starting server on port 8080" << endl;
-    MyController myController;
+    VssController vssController;
     Server server(8080);
-    server.registerController(&myController);
+    server.registerController(&vssController);
 
     server.start(); 
     while (1) {
