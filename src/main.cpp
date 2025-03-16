@@ -26,6 +26,7 @@ class MyController : public WebController
 
 int main()
 {
+    int a = 1;
     cout << "Starting server on port 8080" << endl;
     MyController myController;
     Server server(8080);

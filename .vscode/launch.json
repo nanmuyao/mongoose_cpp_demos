@@ -3,11 +3,25 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
+      "type": "cppdbg",
       "request": "launch",
+      "program": "${workspaceFolder}/build/mongoose_cpp_demos",
       "args": [],
-      "cwd": "/Users/hanzhiqiang/Documents/workspace_lx/mongoose_cpp_demos/src",
-      "program": "/Users/hanzhiqiang/Documents/workspace_lx/mongoose_cpp_demos/src/build/Debug/outDebug"
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build",
+      "logging": {
+        "engineLogging": true
+      }
     }
   ]
-}
