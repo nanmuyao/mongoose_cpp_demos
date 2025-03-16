@@ -10,13 +10,15 @@ AppConfig* AppConfig::instance = NULL;
 
 AppConfig::AppConfig()
 {
-    env = new struct env();
+    env = new struct Env();
     // 读取app_config.json文件, 设置env
     std::ifstream configFile("app_config.json");
     if (configFile.is_open()) {
         Json::Value config;
         configFile >> config;
         env->port = config["port"].asInt();
+        env->host = config["host"].asString();
+        env->db = config["db"]["name"].asString();
         // 设置其他env字段
         configFile.close();
     } else {

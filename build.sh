@@ -11,7 +11,8 @@ cp ../app_config.json ./
 ./mongoose_cpp_demos &
 
 # 在另一个终端中测试服务器
-curl http://localhost:8080/hello
+echo "curl http://localhost:8090/hello =========="
+curl http://localhost:8090/hello
 
 # 停止服务器
 kill %1

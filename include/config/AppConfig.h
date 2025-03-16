@@ -4,23 +4,23 @@
 
 using namespace std;
 
-struct env
+struct Env
 {   
     int port;
     string host;
     string db;
-    /* data */
+    // ...existing code...
 };
 
 // 单例模式
 class AppConfig {
 public:
     static AppConfig* getInstance();
-    void setEnv(env* env);
-    env* getEnv();
+    void setEnv(Env* env);
+    Env* getEnv();
     void print();
 
-    env* env;
+    Env* env;
 private:
     AppConfig();
     static AppConfig* instance;
