@@ -1,8 +1,11 @@
 rm -rf build
 mkdir build && cd build
 cmake ..
-make -j4
+make -j8
 
+echo "pwd==: ${PWD}"
+
+cp ../app_config.json ./
 
 # 启动服务器（后台运行）
 ./mongoose_cpp_demos &

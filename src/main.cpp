@@ -16,8 +16,10 @@ using namespace Mongoose;
 
 int main()
 {
-    int a = 1;
     cout << "Starting server on port 8080" << endl;
+    // 初始化配置
+    AppConfig* appConfig = AppConfig::getInstance();
+    cout << "appConfig->env->port: " << appConfig->env->port << endl;
     VssController vssController;
     Server server(8080);
     server.registerController(&vssController);

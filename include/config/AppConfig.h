@@ -19,8 +19,9 @@ public:
     void setEnv(env* env);
     env* getEnv();
     void print();
+
+    env* env;
 private:
     AppConfig();
     static AppConfig* instance;
-    env* env;
 };
