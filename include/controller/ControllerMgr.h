@@ -5,15 +5,19 @@
 #include <mutex>
 #include <memory>
 #include <mongoose/Controller.h>
+#include "VssController.h"
 
 using namespace std;
 using namespace Mongoose;
 
-template <typename T>
+struct ControllerMap {
+    std::shared_ptr<VssController> vss_controller;
+};
+
 class ControllerMgr
 {
 private:
-    map<string, shared_ptr<T>> controllers;
+    // map<string, shared_ptr<T>> controllers;
     mutex mtx;
 
     ControllerMgr();
@@ -22,17 +26,11 @@ private:
 public:
     static ControllerMgr& getInstance();
 
-    shared_ptr<T> getController(const string& name);
-
-    void registerController(const string& name, shared_ptr<T> controller);
-
-    void registerRoute(const string& controllerName, const string& httpMethod, const string& route, RequestHandlerBase* handler);
-
-    vector<string> getControllerNames();
-
-    vector<shared_ptr<T>> getControllers();
+    void init();
 
     // 禁止拷贝和赋值
     ControllerMgr(const ControllerMgr&) = delete;
     ControllerMgr& operator=(const ControllerMgr&) = delete;
+
+    ControllerMap controllerMap;
 };

@@ -116,5 +116,6 @@
     "charconv": "cpp",
     "forward_list": "cpp",
     "set": "cpp",
+    "*.tpp": "cpp"
   }
 }

@@ -8,11 +8,11 @@ echo "pwd==: ${PWD}"
 cp ../app_config.json ./
 
 # 启动服务器（后台运行）
-./mongoose_cpp_demos &
+./mongoose_cpp_demos
 
 # 在另一个终端中测试服务器
 echo "curl http://localhost:8090/hello =========="
 curl http://localhost:8090/hello
 
 # 停止服务器
-kill %1
+# kill %1

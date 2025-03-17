@@ -19,27 +19,24 @@ using namespace Mongoose;
 
 int main()
 {
-    cout << "Starting server on port 8080" << endl;
     // 初始化配置
     AppConfig* appConfig = AppConfig::getInstance();
-    cout << "appConfig->env->port: " << appConfig->env->port << endl;
+    cout << "start server ... appConfig->env->port: " << appConfig->env->port << endl;
     
     // VssController vssController;
 
     // 使用ControllerMgr管理Controller
-    ControllerMgr<Controller>& controllerMgr = ControllerMgr<Controller>::getInstance();
-    shared_ptr<VssController> vssController = make_shared<VssController>();
-    controllerMgr.registerController("vss", vssController);
-    vssController->setup();
+    ControllerMgr& controllerMgr = ControllerMgr::getInstance();
+    controllerMgr.init();
+
+    cout << "controllerMgr init" << endl;
 
     Server server(appConfig->env->port);
-    // 遍历ControllerMgr中的Controller
-    vector<shared_ptr<Controller>> controllers = controllerMgr.getControllers();
-    for (auto& controller : controllers) {
-        server.registerController(controller.get());
-    }
-    // server.registerController(&vssController);
-
+    cout << "Server server(appConfig->env->port)" << endl;
+    // server.registerController(controller.get());
+    server.registerController(controllerMgr.controllerMap.vss_controller.get());
+    cout << "server.registerController(controllerMgr.controllerMap.vss_controller.get())" << endl;  
+    
     server.start(); 
     while (1) {
         sleep(10);
