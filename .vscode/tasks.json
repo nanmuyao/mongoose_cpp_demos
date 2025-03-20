@@ -1,16 +1,42 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "build",
-        "type": "shell",
-        "command": "cmake --build build",
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": ["$gcc"],
-        "detail": "Generated task by debugging configuration."
-      }
-    ]
-  }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", ".", // 指定源目录
+        "-B", "build", // 指定构建目录
+        "-DCMAKE_BUILD_TYPE=Debug" // 设置 Debug 模式
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "CMake configuration task."
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build", "build" // 构建项目
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Build task for the project."
+    },
+    {
+      "label": "build_and_generate",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": ["configure", "build"], // 依赖配置和构建任务
+      "detail": "Run configure and build tasks sequentially."
+    }
+  ]
+}

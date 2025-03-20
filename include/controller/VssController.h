@@ -14,5 +14,6 @@ public:
     
     void setup();
     void hello(Request &request, StreamResponse &response);
+    void foo();
 };
 

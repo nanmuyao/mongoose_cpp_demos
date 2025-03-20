@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "${workspaceFolder}/build/mongoose_cpp_demos",
       "args": [],
-      "stopAtEntry": false,
+      "stopAtEntry": true, // 在程序入口处暂停
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
@@ -19,9 +19,12 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "build",
+      "preLaunchTask": "build_and_generate", // 修改为新的任务
       "logging": {
-        "engineLogging": true
+        "engineLogging": true, // 启用引擎日志记录
+        "trace": true, // 启用详细日志记录
+        "traceResponse": true // 启用响应日志记录
       }
     }
   ]
+}
