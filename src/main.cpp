@@ -32,20 +32,20 @@ int main()
     cout << "ControllerMgr instance obtained" << endl; // 添加调试输出
     controllerMgr.init();
 
-    // cout << "controllerMgr init" << endl;
+    cout << "controllerMgr init" << endl;
 
-    // Server server(appConfig->env->port);
-    // cout << "Server server(appConfig->env->port)" << endl;
-    // // server.registerController(controller.get());
-    // server.registerController(controllerMgr.controllerMap.vss_controller.get());
-    // cout << "server.registerController(controllerMgr.controllerMap.vss_controller.get())" << endl;  
+    Server server(appConfig->env->port);
+    cout << "Server server(appConfig->env->port)" << endl;
+    // server.registerController(controller.get());
+    server.registerController(controllerMgr.controllerMap.vss_controller.get());
+    cout << "server.registerController(controllerMgr.controllerMap.vss_controller.get())" << endl;  
     
-    // server.start(); 
-    // cout << "server.start()" << endl;
+    server.start(); 
+    cout << "server.start()" << endl;
 
-    // while (1) {
-    //     sleep(1);
-    // }
-    // cout << "down server on port 8080" << endl;
+    while (1) {
+        sleep(1000);
+    }
+    cout << "down server on port 8080" << endl;
     return 0;
 }

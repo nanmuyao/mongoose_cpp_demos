@@ -19,17 +19,17 @@ echo "pwd==: ${PWD}"
 cp ../app_config.json ./
 
 # 启动服务器（后台运行）
-# ./mongoose_cpp_demos &
-# SERVER_PID=$!
-# echo "服务器已启动，PID: $SERVER_PID"
+./mongoose_cpp_demos
+SERVER_PID=$!
+echo "服务器已启动，PID: $SERVER_PID"
 
-# # 等待 2 秒，确保服务器启动
-# sleep 2
+# 等待 2 秒，确保服务器启动
+sleep 5
 
-# # 测试服务器
+# 测试服务器
 # echo "curl http://localhost:8090/hello =========="
 # curl http://localhost:8090/hello || { echo "服务器未正确响应"; exit 1; }
 
-# # 停止服务器
+# 停止服务器
 # echo "停止服务器（PID: $SERVER_PID）"
 # kill $SERVER_PID

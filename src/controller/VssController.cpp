@@ -25,3 +25,13 @@ void VssController::hello(Request &request, StreamResponse &response) {
     foo();  
     response << "Hello " << htmlEntities(request.get("name", "... what's your name ?")) << endl;
 }
+
+// void VssController::preProcess(Request &request, Response &response)
+// {
+//     cout << "VssController::preProcess" << endl;
+// }
+        
+// void VssController::postProcess(Request &request, Response &response)
+// {
+//     cout << "VssController::postProcess" << endl;
+// }
