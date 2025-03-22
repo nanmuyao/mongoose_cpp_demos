@@ -42,9 +42,10 @@ int main()
     
     server.start(); 
     cout << "server.start()" << endl;
+    // server.~Server();
 
     while (1) {
-        sleep(1000);
+        sleep(10);
     }
     cout << "down server on port 8080" << endl;
     return 0;

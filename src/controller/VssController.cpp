@@ -14,7 +14,8 @@ VssController::~VssController() {
 }
 
 void VssController::setup() {
-    addRoute("GET", "/hello", VssController, hello);
+    addRoute("GET", "/vss", VssController, hello);
+    addRoute("GET", "/vss/hello", VssController, hello);
 }
 
 void VssController::foo() {
@@ -23,7 +24,10 @@ void VssController::foo() {
 
 void VssController::hello(Request &request, StreamResponse &response) {
     foo();  
-    response << "Hello " << htmlEntities(request.get("name", "... what's your name ?")) << endl;
+
+    cout << "hello() method called" << endl;
+    cout.flush();
+    response << "Hello 111" << htmlEntities(request.get("name", "... what's your name ?111")) << endl;
 }
 
 // void VssController::preProcess(Request &request, Response &response)
